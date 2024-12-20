@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+import FoodImages from './foodimages';
+import LocationDetect from './locationDetect';
+import SearchSection from './searchSection';
+import SignUpLogin from './signuologin';
+function Home() {
+  const [location, setLocation] = useState('');
+
+  return (
+    <div className="h-screen relative">
+
+      {/* Overlay Content */}
+      <header className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-50 text-white text-center px-4">
+      <img
+  src="\logo.jpg"
+
+  alt="Foodify Logo"
+  className="w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72 mb-6 object-contain"
+/>
+
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+          Discover restaurants and more near you.
+        </h1>
+
+        {/* Search and Location Section */}
+        <SearchSection />
+
+        {/* Location Detection */}
+        <LocationDetect onLocationChange={setLocation} />
+
+        {/* Sign Up and Login Buttons */}
+        <SignUpLogin />
+
+        {/* Food Picture Section */}
+        <FoodImages />
+      </header>
+    </div>
+  );
+}
+
+export default Home;
